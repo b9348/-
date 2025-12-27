@@ -1,11 +1,91 @@
-<div align="center">
+# UniChat - 高颜值跨平台对话应用
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+UniChat 是一个基于 **UniApp** + **Vue 3** + **TypeScript** 开发的跨平台即时通讯（IM）演示应用。
 
-  <h1>Built with AI Studio</h2>
+本项目专注于 **UI/UX 的精致度**与**流畅的交互体验**，采用清新治愈的 "Companion AI" 配色方案（薄荷绿/暖杏色），实现了沉浸式的聊天体验。项目完全组件化开发，代码结构清晰，适配 iOS、Android 真机运行。
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## ✨ 特性亮点
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+### 1. 🎨 极致 UI 设计
+- **自定义导航系统**：完全自定义的顶部 NavBar 和底部 TabBar，摆脱原生限制，支持透明渐变与毛玻璃（Backdrop Filter）效果。
+- **清新配色**：定义了全局 CSS 变量，主打 `--primary-color` (薄荷绿) 与 `--accent-color` (暖杏色)，视觉风格统一且现代。
+- **动态交互**：按钮点击缩放、消息发送上浮动画、列表滑动反馈，细节打磨到位。
 
-</div>
+### 2. 💬 核心聊天功能
+- **消息类型**：支持纯文本、图片、以及图文混合消息气泡的完美展示。
+- **输入体验**：
+    - 底部输入框智能避让键盘（H5/App适配）。
+    - **图片暂存区**：支持选择多张图片后在输入框上方预览、删除，再统一发送（类似微信/Telegram体验）。
+- **模拟交互**：内置 Mock 数据引擎，支持发送消息后模拟对方（AI）自动回复，无需后端即可体验完整流程。
+- **消息反馈**：支持对接收到的消息进行“点赞”或“点踩”操作。
+
+### 3. 📱 页面功能
+- **会话列表**：下拉刷新更新状态，未读消息气泡（Badge），SVG 动态生成的头像（无需加载外部图片）。
+- **个人/联系人详情**：超大头部背景视差效果，卡片式布局，展示 ID、等级、签名等信息。
+- **个人中心**：功能入口聚合，采用悬浮卡片设计。
+
+## 🛠 技术栈
+
+- **框架**：[UniApp](https://uniapp.dcloud.io/) (Vite + Vue 3 Composition API)
+- **语言**：TypeScript
+- **样式**：SCSS (CSS Modules / Scoped)
+- **图标**：纯代码构建的 SVG 图标方案（位于 `utils/icons.ts`），无额外字体图标依赖，加载极快且清晰。
+- **数据**：纯前端 Mock 数据（位于 `utils/mock.ts`），包含随机生成的 SVG 头像。
+
+## 📂 目录结构
+
+```text
+UniChat/
+├── components/         # 全局通用组件
+│   ├── CustomNavBar.vue    # 自定义顶部导航栏
+│   └── CustomTabBar.vue    # 自定义底部标签栏
+├── pages/              # 页面文件
+│   ├── index/          # 会话列表页
+│   ├── chat/           # 聊天详情页 (核心逻辑)
+│   ├── contact/        # 联系人详情页
+│   └── profile/        # 个人中心页
+├── static/             # 静态资源
+├── utils/              # 工具库
+│   ├── icons.ts        # SVG 图标管理
+│   └── mock.ts         # 模拟数据与头像生成
+├── App.vue             # 应用入口 (全局样式定义)
+├── main.ts             # Vue 初始化
+├── manifest.json       # 应用配置 (权限/图标等)
+├── pages.json          # 路由与原生界面配置
+└── uni.scss            # UniApp 全局样式变量
+```
+
+## 🚀 快速开始
+
+本项目推荐使用 **HBuilderX** 进行开发和运行，以获得最佳的跨平台调试体验。
+
+### 1. 导入项目
+打开 HBuilderX，选择 `文件` -> `导入` -> `从本地目录导入`，选择项目根目录。
+
+### 2. 安装依赖
+如果项目中包含 `package.json`，请在项目根目录打开终端运行：
+```bash
+npm install
+```
+*注：本项目主要依赖 HBuilderX 内置插件，通常直接运行即可。*
+
+### 3. 运行项目
+- **真机调试 (推荐)**：连接手机，点击菜单栏 `运行` -> `运行到手机或模拟器` -> `下载真机运行插件`。
+- **H5 预览**：点击菜单栏 `运行` -> `运行到浏览器` -> `Chrome`。
+
+## ⚙️ 关键配置说明
+
+### 沉浸式导航
+在 `pages.json` 中，所有页面的 `navigationStyle` 均设置为 `custom`，这意味着我们需要自己处理状态栏高度。
+组件 `components/CustomNavBar.vue` 已内置了对刘海屏和状态栏高度的自动适配逻辑。
+
+### SVG 头像
+为了减少项目体积并保证演示效果，项目在 `utils/mock.ts` 中使用字符串拼接方式生成 SVG Base64 头像。在实际生产环境中，请替换为真实的图片 URL。
+
+## 📷 预览效果
+
+> 由于是纯代码项目，请直接运行体验流畅的转场动画和 UI 细节。
+
+---
+
+**UniChat** - Designed for smoothness and aesthetics.

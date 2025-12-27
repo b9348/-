@@ -1,0 +1,8 @@
+{
+  "name": "UniChat",
+  "description": "一个高颜值的跨平台UniApp对话应用演示",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

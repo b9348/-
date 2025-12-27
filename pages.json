@@ -1,0 +1,60 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/chat/chat",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"softinputNavBar": "none",
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/contact/contact",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "UniChat",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#8F8F94",
+		"selectedColor": "#2C3E38",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "消息",
+				"iconPath": "static/tab-chat.png",
+				"selectedIconPath": "static/tab-chat-active.png"
+			},
+			{
+				"pagePath": "pages/profile/profile",
+				"text": "我",
+				"iconPath": "static/tab-profile.png",
+				"selectedIconPath": "static/tab-profile-active.png"
+			}
+		]
+	}
+}
